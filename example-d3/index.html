@@ -1,0 +1,20 @@
+<html>
+<head>
+	<title>test of jsdom4browser</title>
+	<meta charset="utf-8">
+</head>
+<body><div id="result">No content</div>
+	<script type="text/javascript">
+
+var worker = new Worker('webworker.min.js');
+worker.onmessage = function(event){
+	document.getElementById('result').innerHTML = event.data;
+	console.log(event.data);
+}
+worker.onerror = function(){
+	console.log(arguments)
+}
+
+	</script>
+</body>
+</html>
